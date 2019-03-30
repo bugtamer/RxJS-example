@@ -1,0 +1,10 @@
+<section *ngIf="isVisible" class="modal-panel">
+  <div class="modal-dialog" role="alertdialog">
+    <h2 class="title">{{ title }}</h2>
+    <p class="message">{{ message }}</p>
+    <div class="action-buttons">
+      <button (click)="accept()" class="accept" type="button">Accept</button>
+      <button (click)="cancel()" class="cancel" type="button">Cancel</button>
+    </div>
+  </div>
+</section>
