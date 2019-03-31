@@ -1,0 +1,31 @@
+<section>
+    <h2>Contact form</h2>
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" required formControlName="email">
+        </div>
+        <div class="row">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" required formControlName="subject">
+        </div>
+        <div class="row">
+            <label for="message">E-mail</label>
+            <textarea id="message" required formControlName="message"></textarea>
+        </div>
+        <div class="row">
+            <button type="reset">Clear</button>
+            <button type="button" (click)="fill()">Fill the form</button>
+            <button type="submit" [disabled]="!messageForm.valid">Send the message</button>
+        </div>
+        <div class="row">
+            <a routerLink="/dashboard">Dashboard</a>
+        </div>
+    </form>
+    <div>
+        <h3>Message preview</h3>
+        <p>Recipient: {{ email.value }}</p>
+        <p>Subject: {{ subject.value }}</p>
+        <p>Message: {{ bodyMsg.value }}</p>
+    </div>
+</section>
