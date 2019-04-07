@@ -6,6 +6,8 @@ Project under construction
 
 ### Custom pending changes confirmation dialog modal
 
+[See its source code](https://github.com/bugtamer/RxJS-example/tree/0.0.1)
+
 It warns you about when you try to leave from a form with pending changes. Its implementation mainly requires these steps:
 
 + create a dialog component. This should be included in the component which has the target form.
