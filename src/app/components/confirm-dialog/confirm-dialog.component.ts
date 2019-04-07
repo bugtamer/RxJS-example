@@ -11,29 +11,31 @@ export class ConfirmDialogComponent {
   @Input() message: string;
   @Input() isVisible: boolean;
 
-  @Output() wasAccepted: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() hasUserConfirmation: EventEmitter<boolean>;
 
-  constructor() { }
+  constructor() {
+    this.hasUserConfirmation = new EventEmitter<boolean>();
+  }
 
   accept(): void {
-    this.hideModal();
+    this.hide();
     this.notifyUserChoice(true);
   }
 
   cancel(): void {
-    this.hideModal();
+    this.hide();
     this.notifyUserChoice(false);
   }
 
 
   // lower abstraction or implementation details
 
-  private hideModal(): void {
+  private hide(): void {
     this.isVisible = false;
   }
 
   private notifyUserChoice(userConfirmation: boolean): void {
-    this.wasAccepted.emit(userConfirmation);
+    this.hasUserConfirmation.emit(userConfirmation);
   }
 
 }

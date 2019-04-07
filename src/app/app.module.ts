@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // services
 import { MessageService } from './services/message/message.service';
+import { DialogService } from './services/dialog/dialog.service';
+// guards
+import { PendingChangesGuard } from './guards/pending-changes.guard';
 // components
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
@@ -31,6 +34,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule
   ],
   providers: [
+    PendingChangesGuard,
+    DialogService,
     MessageService
   ],
   bootstrap: [AppComponent]

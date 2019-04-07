@@ -10,7 +10,7 @@
             <input id="subject" type="text" required formControlName="subject">
         </div>
         <div class="row">
-            <label for="message">E-mail</label>
+            <label for="message">Message</label>
             <textarea id="message" required formControlName="message"></textarea>
         </div>
         <div class="row">
@@ -19,13 +19,17 @@
             <button type="submit" [disabled]="!messageForm.valid">Send the message</button>
         </div>
         <div class="row">
+            <br>
             <a routerLink="/dashboard">Dashboard</a>
         </div>
     </form>
-    <div>
-        <h3>Message preview</h3>
-        <p>Recipient: {{ email.value }}</p>
-        <p>Subject: {{ subject.value }}</p>
-        <p>Message: {{ bodyMsg.value }}</p>
-    </div>
 </section>
+
+<app-confirm-dialog
+    title="Potentially data lost"
+    message="Do you want to leave without saving the pending changes?"
+    [isVisible]="isVisible()"
+    i18n-title="@@confirm-dialog-title"
+    i18n-message="@@confirm-dialog-message"
+    (hasUserConfirmation)="notifyUserChoice($event)">
+</app-confirm-dialog>

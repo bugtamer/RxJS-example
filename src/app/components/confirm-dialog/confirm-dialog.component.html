@@ -1,10 +1,10 @@
-<section *ngIf="isVisible" class="modal-panel">
-  <div class="modal-dialog" role="alertdialog">
-    <h2 class="title">{{ title }}</h2>
-    <p class="message">{{ message }}</p>
+<section *ngIf="isVisible" [attr.aria-hidden]="!isVisible" class="modal-panel">
+  <div class="modal-dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-message">
+    <h2 id="dialog-title" class="title">{{ title }}</h2>
+    <p id="dialog-message" class="message">{{ message }}</p>
     <div class="action-buttons">
-      <button (click)="accept()" class="accept" type="button">Accept</button>
-      <button (click)="cancel()" class="cancel" type="button">Cancel</button>
+      <button (click)="accept()" class="accept" type="button" i18n="@@confirm-dialog-accept-button">Accept</button>
+      <button (click)="cancel()" class="cancel" type="button" i18n="@@confirm-dialog-cancel-button">Cancel</button>
     </div>
   </div>
 </section>
