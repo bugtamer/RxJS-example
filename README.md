@@ -1,27 +1,27 @@
-# RxJS
+# RxJs
 
-Project under construction
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
-## Current experiments
+## Development server
 
-### Custom pending changes confirmation dialog modal
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-[See its source code](https://github.com/bugtamer/RxJS-example/tree/0.0.1)
+## Code scaffolding
 
-It warns you about when you try to leave from a form with pending changes. Its implementation mainly requires these steps:
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-+ create a dialog component. This should be included in the component which has the target form.
-+ create an interface with a method to know if there are pending changes. The top level component which contains the target form should implement this interface. The one that appears on routing module which uses the guard.
-+ create a Guard. Its `canDeactivate` guard method should check whether or not are pending changes. If so, should retrieve the answer of the dialog modal:
+## Build
 
-  Algorithm: `canDeativate = Changes ? Dialog : true`
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-  | Changes | Dialog   | canDeativate | Meaning       |
-  |:-------:|:--------:|:------------:|:-------------:|
-  | `true`  | `true`   | **`true`**   | Leave         |
-  | `true`  | `false`  | **`false`**  | **NOT leave** |
-  | `false` | no modal | **`true`**   | Leave         |
+## Running unit tests
 
-+ add the guard to the path on routing module which makes use of this feature.
-+ register as a provider the guard and the service on `app.module.ts`
-+ create a service which allow Guard and top level form component container communicate each other.
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
